@@ -1,0 +1,21 @@
+@import "../../index.scss";
+.Header_Container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  height: 60px;
+  box-shadow: $box-shadow;
+  .Left {
+    height: 48px;
+    img {
+      height: 100%;
+    }
+  }
+  .Right {
+    a {
+      color: $black;
+      font-size: 3rem;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import {
 } from "./redux/generatorReducer/GenerateReducer";
 import Styles from "./App.module.scss";
 import CurrentColors from "./components/CurrentColors/CurrentColors";
+import Header from "./components/Header/Header";
 
 function App() {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ function App() {
   };
 
   const setStoreGradient = (color) => {
+    console.log(color);
     if (type === "linear") {
       console.log(type + "-gradient(" + direction + "," + color + ")");
       dispatch(
@@ -58,6 +60,7 @@ function App() {
 
   return (
     <div className={Styles.App_Container}>
+      <Header />
       <Controller />
       <CurrentColors />
       <Screen />
