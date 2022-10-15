@@ -1,23 +1,66 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import Controller from "./components/Controller/Controller";
+import Screen from "./components/Screen/Screen";
+import { generateHexCodeString } from "./constants/Utility";
+import {
+  setColorSet,
+  setGradient,
+} from "./redux/generatorReducer/GenerateReducer";
+import Styles from "./App.module.scss";
+import CurrentColors from "./components/CurrentColors/CurrentColors";
 
 function App() {
+  const dispatch = useDispatch();
+  const { numColors, direction, type } = useSelector(
+    (state) => state.generator
+  );
+
+  const generateGradient = () => {
+    let set = [];
+    for (let i = 0; i < numColors; i++) {
+      set.push(generateHexCodeString());
+    }
+    dispatch(setColorSet(set));
+    setStoreGradient(set);
+  };
+
+  const setStoreGradient = (color) => {
+    if (type === "linear") {
+      console.log(type + "-gradient(" + direction + "," + color + ")");
+      dispatch(
+        setGradient(type + "-gradient(" + direction + "," + color + ")")
+      );
+    } else {
+      console.log(type + "-gradient(" + color + ")");
+      dispatch(setGradient(type + "-gradient(" + color + ")"));
+    }
+  };
+
+  useEffect(() => {
+    const handleSpaceBar = (event) => {
+      event.preventDefault();
+      if (event.keyCode === 32) {
+        generateGradient();
+      }
+    };
+    window.addEventListener("keydown", handleSpaceBar);
+
+    return () => {
+      window.removeEventListener("keydown", handleSpaceBar);
+    };
+  }, [numColors, direction, type]);
+
+  useEffect(() => {
+    generateGradient();
+  }, [numColors, direction, type]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={Styles.App_Container}>
+      <Controller />
+      <CurrentColors />
+      <Screen />
     </div>
   );
 }
