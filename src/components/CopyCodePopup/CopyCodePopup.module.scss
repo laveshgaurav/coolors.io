@@ -1,0 +1,93 @@
+@import "../../index.scss";
+.CodePopup_Container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Box {
+    width: 540px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    .Header {
+      height: 48px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: $box-shadow;
+      h3 {
+        color: $black;
+        font-weight: 500;
+      }
+      button {
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        border-radius: 2rem;
+        outline: none;
+        border: none;
+        background-color: $black;
+        color: white;
+      }
+    }
+    .Body {
+      height: calc(300px - 48px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      .Code {
+        width: 70%;
+        background-color: #f3f3f3;
+        overflow-x: scroll;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        position: relative;
+        p {
+          white-space: nowrap;
+          font-family: monospace;
+          font-size: 1rem;
+          color: rgb(214, 23, 55);
+          span {
+            color: gray;
+            font-family: monospace;
+          }
+          .backText {
+            color: $blue !important;
+          }
+        }
+        .Copy {
+          position: absolute;
+          top: 0;
+          right: 0;
+          background-color: $blue;
+          color: white;
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          font-size: 0.75rem;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(8px);
+        }
+      }
+      button {
+        padding: 0.5rem 1rem;
+        border-radius: 0.2rem;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: $blue;
+        color: white;
+        font-weight: 500;
+        width: 70%;
+      }
+    }
+  }
+}

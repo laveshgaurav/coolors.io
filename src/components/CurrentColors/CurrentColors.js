@@ -5,6 +5,7 @@ import {
   reverseColorSet,
   setGradient,
 } from "../../redux/generatorReducer/GenerateReducer";
+import { setCodePopup } from "../../redux/toggleReducer/ToggleReducer";
 import Styles from "./CurrentColors.module.scss";
 
 function CurrentColors() {
@@ -48,7 +49,7 @@ function CurrentColors() {
         ))}
       </div>
       <div className={Styles.Right}>
-        <button title="Code">
+        <button title="Code" onClick={() => dispatch(setCodePopup(true))}>
           <i class="fa-solid fa-code"></i>
         </button>
         <button title="Save">

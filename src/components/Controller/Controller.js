@@ -16,7 +16,19 @@ function Controller() {
   return (
     <div className={Styles.Controller_Container}>
       <div className={Styles.Left}>
-        <h3>Press the spacebar to generate new gradient!</h3>
+        <h3>
+          Press the{" "}
+          <span
+            style={{
+              fontweight: "900 !important",
+              color: "#005ce6",
+              fontFamily: "monospace",
+            }}
+          >
+            SPACEBAR
+          </span>{" "}
+          to generate new gradient!
+        </h3>
       </div>
       <div className={Styles.Right}>
         <label>
@@ -71,7 +83,7 @@ function Controller() {
             >
               {[
                 {
-                  dir: "to left",
+                  dir: "to right",
                   text: "Horizontal",
                 },
                 {

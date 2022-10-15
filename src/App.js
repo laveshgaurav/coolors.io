@@ -11,6 +11,8 @@ import {
 import Styles from "./App.module.scss";
 import CurrentColors from "./components/CurrentColors/CurrentColors";
 import Header from "./components/Header/Header";
+import CopyCodePopup from "./components/CopyCodePopup/CopyCodePopup";
+import { setCodePopup } from "./redux/toggleReducer/ToggleReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -64,6 +66,7 @@ function App() {
       <Controller />
       <CurrentColors />
       <Screen />
+      <CopyCodePopup onClose={() => dispatch(setCodePopup(false))} />
     </div>
   );
 }
