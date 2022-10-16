@@ -7,6 +7,7 @@ import ToggleReducer from "./toggleReducer/ToggleReducer";
 const persistConfig = {
   key: "root",
   storage,
+  blacklist: ["toggle"],
 };
 
 const reducers = combineReducers({

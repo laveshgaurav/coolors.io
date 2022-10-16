@@ -5,7 +5,6 @@ import Controller from "../../components/Controller/Controller";
 import CopyCodePopup from "../../components/CopyCodePopup/CopyCodePopup";
 import CurrentColors from "../../components/CurrentColors/CurrentColors";
 import Header from "../../components/Header/Header";
-import Screen from "../../components/Screen/Screen";
 import { generateHexCodeString } from "../../constants/Utility";
 import {
   setColorSet,
@@ -19,6 +18,8 @@ function Gradient() {
   const { numColors, direction, type } = useSelector(
     (state) => state.generator
   );
+
+  const { downloadPopup } = useSelector((state) => state?.toggle);
 
   const generateGradient = () => {
     let set = [];
@@ -44,9 +45,9 @@ function Gradient() {
 
   useEffect(() => {
     const handleSpaceBar = (event) => {
-      event.preventDefault();
+      // event.preventDefault();
       if (event.keyCode === 32) {
-        generateGradient();
+        !downloadPopup && generateGradient();
       }
     };
     window.addEventListener("keydown", handleSpaceBar);
@@ -54,7 +55,7 @@ function Gradient() {
     return () => {
       window.removeEventListener("keydown", handleSpaceBar);
     };
-  }, [numColors, direction, type]);
+  }, [numColors, direction, type, downloadPopup]);
 
   useEffect(() => {
     generateGradient();
@@ -65,7 +66,7 @@ function Gradient() {
       <Header />
       <Controller generate={generateGradient} />
       <CurrentColors />
-      <Screen />
+      {/* <Screen /> */}
       <CopyCodePopup onClose={() => dispatch(setCodePopup(false))} />
     </div>
   );

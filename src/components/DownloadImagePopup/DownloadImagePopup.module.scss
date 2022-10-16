@@ -1,0 +1,115 @@
+@import "../../index.scss";
+.Download_Container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .Box {
+    width: 540px;
+    height: 180px;
+    background-color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: $box-shadow;
+    .Header {
+      height: 48px;
+      padding: 0.5rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: $box-shadow;
+      h3 {
+        color: $black;
+        font-weight: 500;
+      }
+      button {
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        border-radius: 2rem;
+        outline: none;
+        border: none;
+        background-color: $black;
+        color: white;
+      }
+    }
+    .Body {
+      height: calc(180px - 48px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      transition: 0.5s ease-in-out;
+      form {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input {
+          padding: 0.5rem 1rem;
+          width: 80%;
+          border: 2px solid $blue;
+          border-radius: 4px;
+          font-size: 1rem;
+          outline: none;
+          &:focus {
+            border-color: $black;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .Download_Container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    .Box {
+      width: 90%;
+      height: 180px;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: $box-shadow;
+      .Header {
+        height: 48px;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: $box-shadow;
+        h3 {
+          color: $black;
+          font-weight: 500;
+        }
+        button {
+          padding: 0.25rem 0.5rem;
+          cursor: pointer;
+          border-radius: 2rem;
+          outline: none;
+          border: none;
+          background-color: $black;
+          color: white;
+        }
+      }
+      .Body {
+        height: calc(180px - 48px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    }
+  }
+}

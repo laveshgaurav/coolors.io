@@ -5,6 +5,8 @@ import {
   setNumColors,
   setType,
 } from "../../redux/generatorReducer/GenerateReducer";
+import { setDownloadPopup } from "../../redux/toggleReducer/ToggleReducer";
+import DownloadImagePopup from "../DownloadImagePopup/DownloadImagePopup";
 import Styles from "./Controller.module.scss";
 
 function Controller({ generate }) {

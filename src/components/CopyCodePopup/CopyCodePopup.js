@@ -20,18 +20,22 @@ function CopyCodePopup({ onClose }) {
     };
   }, []);
 
-  const copyCode = () => {
-    const text = `{
+  const copyCode = async () => {
+    try {
+      const text = `{
             background : ${colorSet[0]}; /* fallback for old browsers */
             background : -webkit-${gradient}; /* Chrome 10-25, Safari 5.1-6 */
             background : ${gradient}; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         }`;
-    navigator.clipboard.writeText(text);
-    setIsCopied(true);
+      await navigator?.clipboard?.writeText(text);
+      setIsCopied(true);
 
-    setTimeout(() => {
-      setIsCopied(false);
-    }, 1000);
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1000);
+    } catch (e) {
+      alert(e.message);
+    }
   };
 
   return (
