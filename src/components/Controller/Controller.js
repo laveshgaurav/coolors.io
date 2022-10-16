@@ -7,7 +7,7 @@ import {
 } from "../../redux/generatorReducer/GenerateReducer";
 import Styles from "./Controller.module.scss";
 
-function Controller() {
+function Controller({ generate }) {
   const { numColors, direction, type } = useSelector(
     (state) => state.generator
   );
@@ -31,64 +31,39 @@ function Controller() {
         </h3>
       </div>
       <div className={Styles.Right}>
-        <label>
-          <p>Color Count</p>
-          <select
-            value={numColors}
-            onChange={(e) => {
-              dispatch(setNumColors(e.target.value));
-            }}
-          >
-            {[2, 3, 4, 5].map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        <label>
-          <p>Type</p>
-          <select
-            value={type}
-            onChange={(e) => {
-              dispatch(setType(e.target.value));
-            }}
-          >
-            {[
-              {
-                dir: "linear",
-                text: "Linear",
-              },
-              {
-                dir: "radial",
-                text: "Radial",
-              },
-            ].map((item, index) => (
-              <option key={index} value={item.dir}>
-                {item.text}
-              </option>
-            ))}
-          </select>
-        </label>
-
-        {type === "linear" && (
+        <div className={Styles.Select}>
           <label>
-            <p>Direction</p>
+            <p>Color Count</p>
             <select
-              value={direction}
+              value={numColors}
               onChange={(e) => {
-                dispatch(setDirection(e.target.value));
+                dispatch(setNumColors(e.target.value));
+              }}
+            >
+              {[2, 3, 4, 5].map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label>
+            <p>Type</p>
+            <select
+              value={type}
+              onChange={(e) => {
+                dispatch(setType(e.target.value));
               }}
             >
               {[
                 {
-                  dir: "to right",
-                  text: "Horizontal",
+                  dir: "linear",
+                  text: "Linear",
                 },
                 {
-                  dir: "to bottom",
-                  text: "Vertical",
+                  dir: "radial",
+                  text: "Radial",
                 },
               ].map((item, index) => (
                 <option key={index} value={item.dir}>
@@ -97,7 +72,35 @@ function Controller() {
               ))}
             </select>
           </label>
-        )}
+
+          {type === "linear" && (
+            <label>
+              <p>Direction</p>
+              <select
+                value={direction}
+                onChange={(e) => {
+                  dispatch(setDirection(e.target.value));
+                }}
+              >
+                {[
+                  {
+                    dir: "to right",
+                    text: "Horizontal",
+                  },
+                  {
+                    dir: "to bottom",
+                    text: "Vertical",
+                  },
+                ].map((item, index) => (
+                  <option key={index} value={item.dir}>
+                    {item.text}
+                  </option>
+                ))}
+              </select>
+            </label>
+          )}
+        </div>
+        <button onClick={generate}>Generate</button>
       </div>
     </div>
   );

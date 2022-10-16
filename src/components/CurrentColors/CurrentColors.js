@@ -1,16 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { isLight } from "../../constants/Utility";
-import {
-  reverseColorSet,
-  setGradient,
-} from "../../redux/generatorReducer/GenerateReducer";
 import { setCodePopup } from "../../redux/toggleReducer/ToggleReducer";
 import Styles from "./CurrentColors.module.scss";
 
 function CurrentColors() {
   const dispatch = useDispatch();
-  const { colorSet, type, direction } = useSelector((state) => state.generator);
+  const { colorSet } = useSelector((state) => state.generator);
 
   const copyToClipboard = (id, color) => {
     navigator.clipboard.writeText(color);

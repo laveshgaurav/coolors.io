@@ -5,16 +5,13 @@ import Styles from "./Screen.module.scss";
 function Screen() {
   const { gradient } = useSelector((state) => state.generator);
   return (
-    <div>
-      <div
-        style={{
-          // backgroundColor: color,
-          padding: "2rem",
-          background: gradient,
-          height: "100vh",
-        }}
-      ></div>
-    </div>
+    <div
+      style={{
+        padding: "2rem",
+        background: gradient,
+      }}
+      className={Styles.Screen_Container}
+    ></div>
   );
 }
 
