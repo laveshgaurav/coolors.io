@@ -1,0 +1,125 @@
+@import "../../index.scss";
+.GradientGrid_Container {
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  .Box {
+    padding: 1rem 1rem 0 1rem;
+    box-shadow: $box-shadow;
+    position: relative;
+    p {
+      position: absolute;
+      bottom: 32px;
+      font-family: monospace;
+      font-size: 1rem;
+      color: $blue;
+      animation: moveText;
+      animation-duration: 3s;
+      animation-iteration-count: 1;
+    }
+    @keyframes moveText {
+      0% {
+        bottom: 0px;
+        opacity: 1;
+      }
+      50% {
+        bottom: 48px;
+        opacity: 0;
+      }
+      100% {
+        bottom: 0px;
+        opacity: 0;
+      }
+    }
+    .Screen {
+      height: 180px;
+      margin-bottom: 1rem;
+      background-size: 200% 200%;
+      animation: AnimateBG 12s ease infinite;
+    }
+    @keyframes AnimateBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+    .Detail {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      h3 {
+        color: $black;
+        font-weight: 300;
+        font-size: 1.5rem;
+        text-transform: capitalize;
+      }
+      .Btn_Container {
+        button {
+          background: transparent;
+          color: $black;
+          padding: 0.25rem 0.5rem;
+          border: none;
+          border-radius: 5px;
+          font-size: 0.8rem;
+          font-weight: 300;
+          cursor: pointer;
+          margin-right: 0.5rem;
+          transition: 0.5s ease-in-out;
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+    }
+    .Function {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+      button {
+        margin-left: 1rem;
+        padding: 0.5rem;
+        font-size: 0.8em;
+        background-color: white;
+        color: $black;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        &:hover {
+          color: $blue;
+        }
+      }
+    }
+    .Code {
+      width: 100%;
+      border: 1px solid red;
+      p {
+        font-family: monospace;
+        font-size: 0.95rem;
+        color: rgb(214, 23, 55);
+        white-space: wrap;
+        span {
+          color: gray;
+          font-family: monospace;
+        }
+        .backText {
+          color: $blue !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .GradientGrid_Container {
+    display: grid;
+    grid-gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+}
