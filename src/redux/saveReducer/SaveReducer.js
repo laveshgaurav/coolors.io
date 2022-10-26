@@ -1,21 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  saved: [],
+  savedGradient: [],
+  savedPallet: [],
 };
 
 export const saveSlice = createSlice({
   name: "save",
   initialState,
   reducers: {
-    setSaved: (state, action) => {
+    setSavedGradient: (state, action) => {
       return {
         ...state,
-        saved: [...state.saved, action.payload],
+        savedGradient: [...state.savedGradient, action.payload],
       };
     },
   },
 });
 
-export const { setSaved } = saveSlice.actions;
+export const { setSavedGradient } = saveSlice.actions;
 export default saveSlice.reducer;

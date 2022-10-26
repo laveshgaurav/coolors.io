@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSaved } from "../../redux/saveReducer/SaveReducer";
+import { setSavedGradient } from "../../redux/saveReducer/SaveReducer";
 import Styles from "./SavePopup.module.scss";
 
 function SavePopup({ onClose }) {
@@ -32,7 +32,7 @@ function SavePopup({ onClose }) {
       gradient,
       colorSet,
     };
-    dispatch(setSaved(data));
+    dispatch(setSavedGradient(data));
   };
 
   useEffect(() => {

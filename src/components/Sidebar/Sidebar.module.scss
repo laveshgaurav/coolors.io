@@ -1,0 +1,43 @@
+@import "../../index.scss";
+.Sidebar_Container {
+  position: fixed;
+  width: 180px;
+  height: calc(100% - 60px);
+  background-color: white;
+  box-shadow: 7px 9px 10px 4px rgba(1, 7, 10, 0.25);
+  z-index: 100;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  a {
+    margin-bottom: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  // transform: translateX(-100%);
+}
+
+.Sidebar_Container_open {
+  position: fixed;
+  width: 180px;
+  height: calc(100% - 60px);
+  background-color: white;
+  //   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  bottom: 0;
+  transition: all 0.3s ease-in-out;
+  left: -180px;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  a {
+    margin-bottom: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  // transform: translateX(-100%);
+}

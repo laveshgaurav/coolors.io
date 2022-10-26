@@ -10,6 +10,7 @@
 $black: #3a3d4c;
 $box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
 $blue: #005ce6;
+$blue_light: rgba(0, 92, 230, 0.1);
 $mobile: 426px;
 $tablet: 769px;
 
@@ -54,4 +55,23 @@ $tablet: 769px;
       opacity: 0;
     }
   }
+}
+
+.active {
+  border: 1px solid white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  background-color: $blue_light;
+  color: $blue;
+  font-size: 14px;
+}
+
+.inactive {
+  padding: 8px 12px;
+  color: $black;
+  font-size: 14px;
+}
+.tabActive {
+  background-color: $blue !important;
+  color: white;
 }

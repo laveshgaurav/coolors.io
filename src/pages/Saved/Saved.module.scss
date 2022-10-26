@@ -1,0 +1,16 @@
+@import "../../index.scss";
+.Saved_Container {
+  padding: 1rem;
+  .TabSelector {
+    background-color: $blue_light;
+    button {
+      padding: 8px 12px;
+      min-width: 120px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+      background-color: transparent;
+    }
+  }
+}
