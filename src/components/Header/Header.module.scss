@@ -8,8 +8,11 @@
   box-shadow: $box-shadow;
   .Left {
     height: 48px;
+    display: flex;
+    align-items: center;
     img {
       height: 100%;
+      margin-bottom: 5px;
     }
   }
   .Right {

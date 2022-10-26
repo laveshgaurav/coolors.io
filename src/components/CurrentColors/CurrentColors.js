@@ -4,8 +4,10 @@ import { exportAsImage, isLight } from "../../constants/Utility";
 import {
   setCodePopup,
   setDownloadPopup,
+  setSavePopup,
 } from "../../redux/toggleReducer/ToggleReducer";
 import DownloadImagePopup from "../DownloadImagePopup/DownloadImagePopup";
+import SavePopup from "../SavePopup/SavePopup";
 import Styles from "./CurrentColors.module.scss";
 
 function CurrentColors() {
@@ -54,7 +56,7 @@ function CurrentColors() {
           <button title="Code" onClick={() => dispatch(setCodePopup(true))}>
             <i class="fa-solid fa-code"></i>
           </button>
-          <button title="Save">
+          <button title="Save" onClick={() => dispatch(setSavePopup(true))}>
             <i className="fa-regular fa-heart"></i>
           </button>
           <button
@@ -78,6 +80,19 @@ function CurrentColors() {
         onClose={() => dispatch(setDownloadPopup(false))}
         onDownload={(file) => exportAsImage(exportRef.current, file)}
       />
+      <SavePopup onClose={() => dispatch(setSavePopup(false))} />
+      {/* <div
+        ref={exportRef}
+        style={{
+          padding: "2rem",
+          background: gradient,
+          position: "fixed",
+          width: "720px",
+          height: "1080px",
+          // display: "none",
+          zIndex: "-11",
+        }}
+      ></div> */}
     </>
   );
 }

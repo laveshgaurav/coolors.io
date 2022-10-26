@@ -3,6 +3,7 @@ import generatorReducer from "./generatorReducer/GenerateReducer";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import ToggleReducer from "./toggleReducer/ToggleReducer";
+import SaveReducer from "./saveReducer/SaveReducer";
 
 const persistConfig = {
   key: "root",
@@ -13,6 +14,7 @@ const persistConfig = {
 const reducers = combineReducers({
   generator: generatorReducer,
   toggle: ToggleReducer,
+  save: SaveReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, reducers);

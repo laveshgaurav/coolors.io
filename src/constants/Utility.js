@@ -17,26 +17,20 @@ export const isLight = (color) => {
 };
 
 export const exportAsImage = async (element, imageFileName) => {
-  const html = document.getElementsByTagName("html")[0];
-  const body = document.getElementsByTagName("body")[0];
-  let htmlWidth = html.clientWidth;
-  let bodyWidth = body.clientWidth;
-
-  const newWidth = element.scrollWidth - element.clientWidth;
-
-  if (newWidth > element.clientWidth) {
-    htmlWidth += newWidth;
-    bodyWidth += newWidth;
-  }
-
-  html.style.width = htmlWidth + "px";
-  body.style.width = bodyWidth + "px";
-
-  const canvas = await html2canvas(element);
+  // let width = element.offsetWidth;
+  // let height = element.offsetHeight;
+  // console.log(width, height);
+  // element.style.width = "720px";
+  // element.style.height = "1080px";
+  const canvas = await html2canvas(element, {
+    // width: 720,
+    // height: 1080,
+    scale: 1,
+  });
+  // element.style.width = `${width}px`;
+  // element.style.height = `${height}px`;
   const image = canvas.toDataURL("image/png", 1.0);
   downloadImage(image, imageFileName);
-  html.style.width = null;
-  body.style.width = null;
 };
 
 const downloadImage = (blob, fileName) => {
