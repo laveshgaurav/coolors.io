@@ -7,6 +7,12 @@ export const generateHexCodeString = () => {
   return color;
 };
 
+export const generateNearbyColor = (color) => {
+  const dec = parseInt(color, 16);
+  const diff = dec - Math.floor(Math.random() * 85000 + 100000);
+  return `#${Math.abs(diff).toString(16)}`;
+};
+
 export const isLight = (color) => {
   const hex = color.replace("#", "");
   const c_r = parseInt(hex.substring(0, 0 + 2), 16);

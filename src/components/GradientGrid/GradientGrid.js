@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { exportAsImage } from "../../constants/Utility";
+import { deleteSavedGradient } from "../../redux/saveReducer/SaveReducer";
 import Styles from "./GradientGrid.module.scss";
 
 function GradientGrid() {
@@ -11,6 +12,12 @@ function GradientGrid() {
       {savedGradient?.map((item, index) => (
         <ColorBox item={item} key={index} />
       ))}
+      {/* <input
+        type="color"
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      /> */}
     </div>
   );
 }
@@ -20,6 +27,7 @@ export default GradientGrid;
 const ColorBox = ({ item }) => {
   const exportRef = useRef();
   const [isCopied, setIsCopied] = useState(false);
+  const dispatch = useDispatch();
 
   const copyCode = async (id) => {
     try {
@@ -59,7 +67,10 @@ const ColorBox = ({ item }) => {
           >
             <i className="fa-solid fa-arrow-down"></i>
           </button>
-          <button title="Delete">
+          <button
+            title="Delete"
+            onClick={() => dispatch(deleteSavedGradient(item?.id))}
+          >
             <i className="fa-regular fa-trash-can"></i>
           </button>
         </div>

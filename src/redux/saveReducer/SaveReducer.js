@@ -15,8 +15,16 @@ export const saveSlice = createSlice({
         savedGradient: [...state.savedGradient, action.payload],
       };
     },
+    deleteSavedGradient: (state, action) => {
+      return {
+        ...state,
+        savedGradient: state.savedGradient.filter(
+          (item) => item.id !== action.payload
+        ),
+      };
+    },
   },
 });
 
-export const { setSavedGradient } = saveSlice.actions;
+export const { setSavedGradient, deleteSavedGradient } = saveSlice.actions;
 export default saveSlice.reducer;

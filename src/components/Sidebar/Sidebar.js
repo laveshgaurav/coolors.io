@@ -19,6 +19,13 @@ function Sidebar({ isMenuOpen }) {
         Gradient
       </NavLink>
       <NavLink
+        to="/pallet"
+        className={({ isActive }) => (isActive ? "active" : "inactive")}
+        end
+      >
+        Pallet
+      </NavLink>
+      <NavLink
         to="/saved"
         className={({ isActive }) => (isActive ? "active" : "inactive")}
         end
